@@ -1,0 +1,198 @@
+.cat-container {
+  padding: 10px 60px;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.cat-main-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Chia 2 cột */
+  gap: 40px;
+  align-items: start;
+}
+
+.cat-card {
+  background: #fff;
+  padding: 16px 36px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  border: 1px solid #f0f0f0;
+}
+
+.cat-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Add Category */
+.cat-form-group {
+  margin-bottom: 30px;
+}
+
+.cat-form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.cat-input {
+  width: 100%;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.cat-input:focus {
+  border-color: #ffb74d;
+}
+
+.cat-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cat-save-btn {
+  background-color: #ffb74d; /* Màu cam mẫu */
+  color: rgb(37, 37, 37);
+  border: none;
+  padding: 12px 40px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background 0.3s;
+}
+
+.cat-save-btn:hover {
+  background-color: #ffa726;
+}
+
+/* List Category */
+.cat-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 4px;
+}
+
+.cat-item.bg-light {
+  background-color: #F2FFFE; /* Màu xanh nhạt xen kẽ */
+}
+
+.cat-name {
+  font-weight: 500;
+  color: #444;
+}
+
+.cat-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cat-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+.cat-edit-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Ô input chỉnh sửa */
+.cat-edit-input {
+  flex: 1; /* Để input chiếm không gian trống */
+  padding: 8px 12px;
+  border: 1px solid #00a499; /* Màu xanh teal chủ đạo */
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Nhóm các nút hành động */
+.cat-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Style chung cho nút icon */
+.cat-icon-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+/* Nút Save - Màu xanh lá nhẹ */
+.cat-icon-btn.save {
+  color: #27ae60;
+}
+.cat-icon-btn.save:hover:not(:disabled) {
+  background-color: #e8f5e9;
+  transform: scale(1.1);
+}
+
+/* Nút Cancel - Màu đỏ nhẹ */
+.cat-icon-btn.cancel {
+  color: #e74c3c;
+}
+.cat-icon-btn.cancel:hover:not(:disabled) {
+  background-color: #fdedec;
+  transform: scale(1.1);
+}
+
+/* Hiệu ứng khi đang xử lý (loading) */
+.cat-icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+.cat-icon-btn.edit {
+  color: #7c4dff; /* Màu tím/xanh cho edit */
+}
+
+.cat-icon-btn.delete {
+  color: #ef5350; /* Màu đỏ cho delete */
+}
+
+.cat-icon-btn:hover {
+  opacity: 0.7;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .cat-grid {
+    grid-template-columns: 1fr;
+  }
+}

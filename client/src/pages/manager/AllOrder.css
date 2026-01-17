@@ -1,0 +1,325 @@
+/* Biến màu sắc dựa trên thiết kế */
+:root {
+  --primary-teal: #00aba9; /* Màu teal chủ đạo */
+  --light-teal-bg: #F2FFFE; /* Màu nền nhạt cho header/row chẵn */
+  --text-dark: #333;
+  --text-light-gray: #666;
+  --border-color: #e0e0e0;
+
+  /* Màu trạng thái */
+  --status-delivered-bg: #d0f0c0;
+  --status-delivered-text: #1e5631;
+  --status-canceled-bg: #fadbd8;
+  --status-canceled-text: #c0392b;
+  --status-pending-bg: #bbdefb; /* Màu xanh dương nhạt cho Pending */
+  --status-pending-text: #0d47a1;
+  --status-processing-bg: #ffe0b2; /* Màu cam nhạt cho Processing */
+  --status-processing-text: #e65100;
+  
+  --edit-icon-color: #5e35b1; /* Màu tím xanh cho icon sửa */
+}
+
+.ao-container {
+  padding: 10px 60px;
+  background-color: #fff;
+  color: var(--text-dark);
+}
+
+.ao-loading, .ao-error {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: var(--text-light-gray);
+}
+.ao-error { color: var(--status-canceled-text); }
+
+/* --- Header --- */
+.ao-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+/* --- Filters (Các nút lọc hình viên thuốc) --- */
+.ao-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.ao-filter-btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px; /* Hình viên thuốc */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f0f2f5; /* Màu nền mặc định xám nhạt */
+  color: var(--text-light-gray);
+}
+
+.ao-filter-btn:hover {
+    background-color: #e4e6e9;
+}
+
+/* Trạng thái Active của các nút filter - dùng màu teal chủ đạo */
+.ao-filter-btn.active {
+    background-color: var(--primary-teal);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 171, 169, 0.3);
+}
+
+/* Nếu muốn màu riêng cho từng nút khi active (như tag trong ảnh gốc) thì uncomment đoạn dưới */
+/* .ao-filter-btn.filter-all.active { background-color: #9e9e9e; color: white; }
+.ao-filter-btn.filter-pending.active { background-color: var(--status-pending-bg); color: var(--status-pending-text); }
+.ao-filter-btn.filter-processing.active { background-color: var(--status-processing-bg); color: var(--status-processing-text); }
+.ao-filter-btn.filter-canceled.active { background-color: var(--status-canceled-bg); color: var(--status-canceled-text); }
+.ao-filter-btn.filter-delivered.active { background-color: var(--status-delivered-bg); color: var(--status-delivered-text); } 
+*/
+
+
+/* --- Table Styles --- */
+.ao-table-responsive {
+    overflow-x: auto;
+}
+
+.ao-table {
+  width: 100%;
+  border-collapse: separate; /* Để dùng border-radius cho row nếu cần */
+  border-spacing: 0;
+  white-space: nowrap;
+}
+
+.ao-table th,
+.ao-table td {
+  padding: 20px 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid transparent; /* Loại bỏ border mặc định */
+}
+
+/* Header của bảng */
+/* .ao-text-center {
+    text-align: center;
+} */
+
+.ao-table th {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 15px;
+}
+
+/* Zebra striping (màu xen kẽ cho các hàng) */
+.ao-table tbody tr:nth-child(odd) {
+  background-color: var(--light-teal-bg);
+}
+
+.ao-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02); /* Hiệu ứng hover nhẹ */
+}
+
+/* Cột Products */
+.ao-product-cell {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ao-product-cell img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.ao-product-name {
+    font-weight: 500;
+    white-space: normal; /* Cho phép xuống dòng tên sản phẩm dài */
+    max-width: 250px;
+}
+
+/* Cột Total Price */
+.ao-total-price {
+    font-weight: 600;
+}
+
+/* --- Status Badges (Các nhãn trạng thái) --- */
+.ao-status-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.ao-status-delivered {
+  background-color: var(--status-delivered-bg);
+  color: var(--status-delivered-text);
+}
+
+.ao-status-canceled {
+  background-color: var(--status-canceled-bg);
+  color: var(--status-canceled-text);
+}
+
+.ao-status-pending {
+  background-color: var(--status-pending-bg);
+  color: var(--status-pending-text);
+}
+
+.ao-status-processing {
+    background-color: var(--status-processing-bg);
+    color: var(--status-processing-text);
+}
+
+
+/* --- Update Column (Nút sửa) --- */
+.ao-action {
+    text-align: center;
+}
+
+.ao-update-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--edit-icon-color); /* Màu tím/xanh cho icon */
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.ao-update-btn:hover {
+  background-color: rgba(94, 53, 177, 0.1);
+}
+
+.ao-no-data {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-light-gray);
+    font-style: italic;
+}
+
+/* --- Modal Styles --- */
+.ao-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.ao-modal {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  min-width: 400px;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ao-modal h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+  font-size: 20px;
+}
+
+.ao-modal-info {
+  margin: 8px 0;
+  color: var(--text-light-gray);
+  font-size: 14px;
+}
+
+.ao-modal-body {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ao-modal-body label {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.ao-status-select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.ao-status-select:focus {
+  outline: none;
+  border-color: var(--primary-teal);
+  box-shadow: 0 0 0 2px rgba(0, 171, 169, 0.1);
+}
+
+.ao-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.ao-btn-cancel,
+.ao-btn-confirm {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ao-btn-cancel {
+  background-color: #f0f0f0;
+  color: var(--text-dark);
+}
+
+.ao-btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.ao-btn-confirm {
+  background-color: var(--primary-teal);
+  color: white;
+}
+
+.ao-btn-confirm:hover {
+  background-color: #00867d;
+}
+
+.ao-btn-confirm:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

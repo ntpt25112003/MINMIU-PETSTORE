@@ -1,0 +1,18 @@
+.ul-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 0;
+  padding-top: 80px;
+  /* flex: 1; */
+}
+
+.ul-content {
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .ul-container {
+    grid-template-columns: 1fr;
+  }
+}

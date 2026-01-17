@@ -1,0 +1,41 @@
+@startuml
+title Sequence Diagram - Checkout Process
+
+actor USER
+participant "User Interface" as UI
+participant "System" as SYS
+database "Database" as DB
+
+USER -> UI: Checkout
+UI -> SYS: getShippingAddresses(userId)
+SYS -> DB: SELECT ShippingInfo by userId
+DB --> SYS: address list
+SYS --> UI: Return addresses
+UI --> USER: Display address list
+
+USER -> UI: Select shipping address + Confirm order
+UI -> SYS: createOrder(userId, addressId)
+
+SYS -> DB: getCartItems(userId)
+DB --> SYS: cart items
+
+SYS -> DB: validateStockForAllItems()
+DB --> SYS: validation result
+
+alt Order valid
+  SYS -> DB: INSERT Order
+  DB --> SYS: orderId
+  SYS -> DB: INSERT OrderItems
+  DB --> SYS: inserted items
+  SYS -> DB: UPDATE Product stockQuantity
+  DB --> SYS: update result
+  SYS -> DB: CLEAR CartItems
+  DB --> SYS: clear result
+  SYS --> UI: Return success + order info
+  UI --> USER: Display order success + orderId
+else Order invalid (out of stock / empty cart)
+  SYS --> UI: Return failure message
+  UI --> USER: Display order failed
+end
+
+@enduml

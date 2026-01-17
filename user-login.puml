@@ -1,0 +1,29 @@
+@startuml
+title Sequence Diagram - Guest Login
+
+actor Guest
+participant "User Interface" as UI
+participant "System" as SYS
+database "Database" as DB
+
+Guest -> UI: Access login page
+UI --> Guest: Display login form
+
+Guest -> UI: Fill login information
+Guest -> UI: Submit login form
+UI -> SYS: login(phoneNumber, password)
+
+SYS -> DB: find Guest by phone
+DB --> SYS: Guest record
+SYS -> SYS: Compare password (bcrypt)
+
+alt Valid credentials
+  SYS -> SYS: Generate JWT token
+  SYS --> UI: Login success + token
+  UI --> Guest: Redirect to home page
+else Invalid credentials
+  SYS --> UI: Login failed
+  UI --> Guest: Display error message
+end
+
+@enduml

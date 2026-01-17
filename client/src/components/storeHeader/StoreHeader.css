@@ -1,0 +1,90 @@
+.store-header-container {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+/* Nhóm bên phải */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Khoảng cách giữa search và giỏ hàng */
+}
+
+/* Style chung cho các ô */
+.category-btn, .search-section, .cart-section {
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  height: 45px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+/* Nút Danh mục */
+.header-left { position: relative; }
+.category-btn {
+  padding: 0 20px;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* Thanh Tìm kiếm - Đã thu ngắn lại */
+.search-section {
+  width: 450px; /* Độ dài cố định giống trong hình */
+  padding: 0 16px;
+}
+.search-icon { color: #888; margin-right: 8px; }
+.search-section input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Giỏ hàng */
+.cart-section {
+  padding: 0 15px;
+  gap: 8px;
+  cursor: pointer;
+  min-width: 60px;
+  justify-content: center;
+}
+.count { font-weight: 500; }
+
+/* Menu Dropdown */
+.category-dropdown {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  z-index: 100;
+  padding: 8px 0;
+}
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+.dropdown-item:hover { background: #f8f8f8; color: #009b95; }

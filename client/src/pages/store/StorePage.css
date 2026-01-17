@@ -1,0 +1,182 @@
+/* Store Page CSS */
+.store {
+    background-color: #f9f9f9;
+    padding-top: 180px;
+  }
+  .store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 16px 60px; */
+}
+
+
+  /* Banner Section */
+  .banner {
+    padding: 4px 60px;
+    margin-bottom: 60px;
+  }
+  
+  .banner-images {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 15px; 
+    height: 450px; 
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Quan trọng: Giữ ảnh không bị méo khi co giãn */
+    border-radius: 10px; /* Bo góc nhẹ cho giống xu hướng hiện đại */
+    display: block;
+  }
+  
+  .banner-images .banner-img:nth-child(1) {
+    grid-row: span 2;
+  }
+  
+  /* Responsive: Trên điện thoại sẽ xếp chồng thành 1 cột */
+  @media (max-width: 768px) {
+    .banner-images {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
+    }
+    
+    .banner-images .banner-img:nth-child(1) {
+      grid-row: span 1;
+    }
+    
+    .banner-img {
+      height: 200px; 
+    }
+  }
+  
+  /* Product Grid */
+  .product-category {
+    /* max-width: 1200px; */
+    margin: 0px auto;
+    padding: 10px 60px;
+  }
+  
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* margin-bottom: 25px; */
+  }
+  
+  .yellow-square {
+    width: 20px;
+    height: 35px;
+    background-color: #FFBD4B;
+    border-radius: 4px;
+  }
+  
+  .category-header h2 {
+    font-size: 26px;
+    color: #000000;
+    font-weight: 600;
+  
+  }
+  
+  /* Lưới sản phẩm 5 cột */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 sản phẩm mỗi hàng */
+    gap: 15px; /* Giảm gap một chút để 6 card không bị quá chật */
+  }
+  
+  /* Card sản phẩm */
+  .product-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 16px;
+    min-width: 0;
+    /* text-align: center; */
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fff;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: 280px;
+    margin-bottom: 15px;
+  }
+  
+  .store-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start; /* Đưa tất cả các phần tử con về bên trái */
+    text-align: left;        /* Đảm bảo văn bản canh lề trái */
+  }
+
+  .store-product-name {
+    font-size: 12px;         /* Giảm nhẹ size chữ vì 6 cột sẽ làm card nhỏ lại */
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+    width: 100%;   
+    height: 40px;          /* Chiếm hết chiều rộng để căn lề trái chuẩn */
+  }
+
+  .store-product-price {
+    color: #ff2020;
+    font-weight: 600;
+    font-size: 18px;         /* Giảm nhẹ size giá */
+    margin: 0;
+    width: 100%;             /* Chiếm hết chiều rộng để căn lề trái chuẩn */
+  }
+  
+  /* Nút Add to cart */
+  .add-to-cart-btn {
+    background-color: #009b95; /* Màu Teal giống hình */
+    color: white;
+    border: none;
+    padding: 12px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #008b8b;
+  }
+  
+  /* Nút See more */
+  .see-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .see-more-btn {
+    background-color: #FFBD4B;
+    color: #333;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .see-more-btn:hover {
+    background-color: #ffa520;
+  }
+  
+  
+  

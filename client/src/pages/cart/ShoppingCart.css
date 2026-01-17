@@ -1,0 +1,225 @@
+.shopping-cart-page {
+    background-color: #fcfcfc;
+    /* min-height: 100vh; */
+    padding-top: 80px;
+    /* display: flex;
+    flex-direction: column; */
+    
+  }
+  
+  .cart-container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px 60px;
+    /* flex: 1; */
+  }
+  
+  .cart-title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .cart-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  /* Bảng danh sách sản phẩm */
+  .cart-items-list {
+    flex: 2;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+/* 1. Định nghĩa khung Grid chuẩn cho toàn bộ bảng */
+.cart-header-row, 
+.cart-item-card {
+  display: grid;
+  /* Cố định các cột nhỏ, ưu tiên không gian cho cột Product (4fr) */
+  grid-template-columns: 60px 4fr 1.2fr 1.5fr 1.2fr 60px; 
+  padding: 15px 20px;
+  align-items: center; /* Căn giữa tất cả thành phần theo chiều dọc */
+  border-bottom: 1px solid #eee;
+}
+
+/* 2. Căn chỉnh tiêu đề Header - Phải trùng khớp với nội dung bên dưới */
+.cart-header-row span {
+  font-weight: 600;
+  color: #333;
+}
+
+.col-product { text-align: left; padding-left: 10px; }
+.col-price, .col-quantity, .col-total { text-align: center; }
+
+/* 3. Căn chỉnh Nội dung sản phẩm (Hình + Tên) */
+.product-info {
+  display: flex;         /* Sử dụng Flexbox */
+  align-items: center;
+  flex-direction: row; 
+  gap: 15px;            /* Khoảng cách giữa hình và tên */
+  padding-left: 10px;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;        /* Không cho hình bị bóp méo */
+}
+
+.product-name {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;      /* Tên luôn căn trái */
+  word-break: break-word; 
+}
+
+/* 4. Đảm bảo các cột số lượng và giá nằm chính giữa cột của chúng */
+.unit-price, 
+.total-price {
+  text-align: center;
+  font-weight: 500;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center; /* Căn giữa bộ điều khiển số lượng */
+  align-items: center;
+}
+
+/* 5. Checkbox to và căn giữa */
+.cart-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #009b95;
+  justify-self: center; /* Căn giữa checkbox trong cột 60px */
+}
+
+/* 6. Nút xóa căn giữa */
+.delete-btn {
+  justify-self: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+
+.quantity-controls {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 0 auto; /* Đưa bộ tăng giảm số lượng ra giữa cột */
+}
+  .quantity-controls button {
+    padding: 5px 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .quantity-controls input {
+    width: 30px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border: none;
+  }
+  
+  .total-price {
+    color: #ff4d4d; /* Màu đỏ cho giá tổng sản phẩm */
+    font-weight: 500;
+  }
+  
+  .delete-btn {
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .delete-btn:hover {
+    color: #ff4d4d;
+  }
+
+  .delete-all-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
+    padding: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .delete-all-btn:hover:not(:disabled) {
+    color: #ff4d4d;
+  }
+
+  .delete-all-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  /* Cột bên phải - Summary */
+  .cart-summary {
+    flex: 1;
+  }
+  
+  .summary-box {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+  }
+  
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .total-final {
+    margin-top: 20px;
+    font-weight: 600;
+  }
+  
+  .final-price {
+    color: #ff4d4d;
+    font-size: 24px;
+  }
+  
+  .checkout-btn {
+    width: 100%;
+    background-color: #009b95; /* Màu xanh Teal */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .checkout-btn:hover:not(:disabled) {
+    background-color: #007d74;
+  }
+
+  .checkout-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .footer-section {
+    margin: auto;
+  
+  }

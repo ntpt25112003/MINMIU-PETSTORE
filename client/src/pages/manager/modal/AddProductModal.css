@@ -1,0 +1,152 @@
+.productModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.productModalCard {
+  width: min(850px, 100%);
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.productModalTitle {
+  margin: 0 0 35px;
+  text-align: center;
+  font-size: 38px;
+  font-weight: 500;
+  color: #009B95; /* Màu cam vàng như ảnh */
+}
+
+.productModalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.topRow {
+  display: flex;
+  gap: 20px;
+}
+
+.flex-3 { flex: 3; }
+.flex-1 { flex: 1.2; }
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field span {
+  display: block;
+  margin-bottom: 8px;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* Đồng nhất style cho mọi ô nhập liệu */
+.field input, 
+.field select, 
+.field textarea,
+.uploadBox {
+  width: 100%;
+  height: 50px; /* Chiều cao cố định */
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 15px 12px;
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box; /* Quan trọng để ko bị lệch */
+}
+
+.field textarea {
+  height: auto;
+  padding: 12px;
+}
+
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: #009B95;
+}
+
+/* Style riêng cho ô Upload */
+.uploadBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fff;
+  overflow: hidden;
+  padding: 0; /* Xóa padding để ảnh preview tràn viền */
+}
+
+.uploadPlaceholder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+}
+
+.uploadIcon {
+  font-size: 18px;
+}
+
+.imgPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Actions Buttons */
+.productModalActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.cancelBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+}
+
+.saveBtn {
+  background: #ffb347;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 12px 45px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.saveBtn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .topRow { flex-direction: column; }
+  .formGrid { grid-template-columns: 1fr 1fr; }
+  .productModalCard { padding: 30px 20px; }
+}

@@ -1,0 +1,128 @@
+@startuml
+title Class Diagram - PetStore E-commerce System
+
+left to right direction
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam nodesep 80
+skinparam ranksep 120
+
+'================= CLASSES =================
+
+class User {
+  - id: Integer
+  - userName: String
+  - phoneNumber: String
+  - password: String
+  - role: String
+  - createdAt: Date
+}
+
+class ShippingInf {
+  - id: Integer
+  - userId: Integer
+  - fullName: String
+  - phoneNumber: String
+  - address: String
+  - isDefault: Boolean
+}
+
+class Cart {
+  - id: Integer
+  - userId: Integer
+}
+
+class CartItem {
+  - id: Integer
+  - cartId: Integer
+  - productId: Integer
+  - quantity: Integer
+  - price: Integer
+}
+
+class Order {
+  - id: Integer
+  - userId: Integer
+  - shippingAddress: String
+  - status: String
+  - totalPrice: Integer
+  - createdAt: Date
+}
+
+class OrderItem {
+  - id: Integer
+  - orderId: Integer
+  - productId: Integer
+  - quantity: Integer
+  - price: Integer
+}
+
+class Product {
+  - id: Integer
+  - name: String
+  - price: Integer
+  - stockQuantity: Integer
+  - image: String
+}
+
+class Category {
+  - id: Integer
+  - name: String
+}
+
+class Manager {
+  - id: Integer
+  - userName: String
+  - phoneNumber: String
+  - password: String
+}
+
+class Message {
+  - id: Integer
+  - userId: Integer
+  - content: String
+  - createdAt: Date
+}
+
+'================= GROUPING =================
+
+together {
+  User
+  ShippingInf
+  Cart
+}
+
+together {
+  Order
+  OrderItem
+}
+
+together {
+  Product
+  Category
+}
+
+together {
+  Manager
+  Message
+}
+
+'================= ASSOCIATIONS =================
+
+User "1" -- "N" ShippingInf
+User "1" -- "1" Cart
+Cart "1" -- "N" CartItem
+CartItem "N" -- "1" Product
+
+User "1" -- "N" Order
+Order "1" -- "N" OrderItem
+OrderItem "N" -- "1" Product
+
+Category "1" -- "N" Product
+Manager "1" -- "N" Product
+Manager "1" -- "N" Category
+
+User "1" -- "N" Message
+Manager "1" -- "N" Message
+
+@enduml

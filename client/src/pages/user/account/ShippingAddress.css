@@ -1,0 +1,177 @@
+.AddressPageContainer {
+  padding: 30px 60px;
+  background-color: #fff;
+  color: var(--text-dark);
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sectionHeader h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.addNewBtn {
+  background: #f6c258;
+  color: #000;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.addNewBtn:hover {
+  opacity: 0.9;
+}
+
+.addressList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addressCard {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+
+.addressCard:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addressInfo {
+  flex: 1;
+}
+
+.addressInfo h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.phone {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.defaultBadge {
+  display: inline-block;
+  background: #ffb347;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.address {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.addressActions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.editBtn,
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #009b95;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.editBtn:hover {
+  color: #007a76;
+}
+
+.deleteBtn {
+  color: #dc1010;
+}
+
+.deleteBtn:hover {
+  color: #b80a0a;
+}
+
+.setDefaultBtn {
+  background: none;
+  border: 1px solid #e0e0e0;
+  color: #666;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.setDefaultBtn:hover {
+  border-color: #009b95;
+  color: #009b95;
+}
+
+.noAddresses {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .userPageContainer {
+    flex-direction: column;
+  }
+
+  .user-sidebar {
+    width: 100%;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .userContentSection {
+    padding: 20px;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .addressCard {
+    flex-direction: column;
+  }
+
+  .addressActions {
+    margin-top: 15px;
+  }
+}

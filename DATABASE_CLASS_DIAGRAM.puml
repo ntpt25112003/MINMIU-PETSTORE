@@ -1,0 +1,199 @@
+@startuml PetStore_Database
+!theme plain
+skinparam linetype ortho
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam classAttributeIconSize 0
+
+' ============================================
+' User Management Entities
+' ============================================
+
+class User {
+  - id: INT (PK)
+  - userName: STRING
+  - phoneNumber: INT
+  - password: STRING
+  - role: STRING
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + hasMany(Order)
+  + hasMany(ShippingInf)
+  + hasOne(Cart)
+  + hasMany(Review)
+}
+
+class Manager {
+  - id: INT (PK)
+  - userName: STRING
+  - phoneNumber: INT
+  - password: STRING
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + hasMany(Product)
+  + hasMany(Category)
+}
+
+' ============================================
+' Product & Category Entities
+' ============================================
+
+class Category {
+  - id: INT (PK)
+  - name: STRING
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + hasMany(Product)
+}
+
+class Product {
+  - id: INT (PK)
+  - name: STRING
+  - price: INT
+  - description: TEXT
+  - quantity: INT
+  - status: STRING
+  - image: STRING
+  - categoryId: INT (FK)
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(Category)
+  + hasMany(OrderItem)
+  + hasMany(CartItem)
+  + hasMany(Review)
+}
+
+' ============================================
+' Order & Checkout Entities
+' ============================================
+
+class Order {
+  - id: INT (PK)
+  - userId: INT (FK)
+  - shippingAddress: STRING
+  - status: STRING
+  - totalPrice: INT
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(User)
+  + hasMany(OrderItem)
+  + hasMany(Review)
+}
+
+class OrderItem {
+  - id: INT (PK)
+  - orderId: INT (FK)
+  - productId: INT (FK)
+  - quantity: INT
+  - totalPrice: INT
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(Order)
+  + belongsTo(Product)
+}
+
+class ShippingInf {
+  - id: INT (PK)
+  - userId: INT (FK)
+  - fullName: STRING
+  - phoneNumber: STRING
+  - address: TEXT
+  - isDefault: BOOLEAN
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(User)
+}
+
+' ============================================
+' Cart & Shopping Entities
+' ============================================
+
+class Cart {
+  - id: INT (PK)
+  - userId: INT (FK)
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(User)
+  + hasMany(CartItem)
+}
+
+class CartItem {
+  - id: INT (PK)
+  - cartId: INT (FK)
+  - productId: INT (FK)
+  - quantity: INT
+  - price: INT
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(Cart)
+  + belongsTo(Product)
+}
+
+' ============================================
+' Review & Message Entities
+' ============================================
+
+class Review {
+  - id: INT (PK)
+  - userId: INT (FK)
+  - productId: INT (FK)
+  - orderId: INT (FK)
+  - rating: INT (1-5)
+  - content: TEXT
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+  --
+  + belongsTo(User)
+  + belongsTo(Product)
+  + belongsTo(Order)
+}
+
+class Message {
+  - id: INT (PK)
+  - name: STRING
+  - email: STRING
+  - subject: STRING
+  - message: TEXT
+  - createdAt: TIMESTAMP
+  - updatedAt: TIMESTAMP
+}
+
+' ============================================
+' Relationships
+' ============================================
+
+' User relationships
+User "1" -- "N" ShippingInf : has
+User "1" -- "1" Cart : owns
+User "1" -- "N" Order : places
+User "1" -- "N" Review : writes
+User "1" -- "N" Message : sends
+
+' Product relationships
+Category "1" -- "N" Product : contains
+Product "1" -- "N" CartItem : in
+Product "1" -- "N" OrderItem : in
+Product "1" -- "N" Review : receives
+
+' Order relationships
+Order "1" -- "N" OrderItem : contains
+Order "1" -- "N" Review : has
+
+' Cart relationships
+Cart "1" -- "N" CartItem : contains
+CartItem "N" -- "1" Product : is
+
+' Manager relationships
+Manager "1" -- "N" Category : manages
+Manager "1" -- "N" Product : manages
+
+@enduml

@@ -1,0 +1,156 @@
+.suOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(80, 80, 80, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    z-index: 9999;
+  }
+  
+  .suCard {
+    width: min(560px, 100%);
+    background: #fff;
+    border-radius: 16px;
+    padding: 42px 48px 34px;
+    position: relative;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  }
+  
+  .suClose {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  
+  .suClose:focus {
+    outline: none;
+  }
+  .suClose:focus-visible {
+    outline: 2px solid rgba(0, 155, 149, 0.6);
+    outline-offset: 3px;
+  }
+  
+  .suTitle {
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  
+  .suSubtitle {
+    margin: 8px 0 22px;
+    text-align: center;
+    color: #475569;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .suForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .suField span {
+    display: block;
+    margin-bottom: 8px;
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .suField input {
+    width: 100%;
+    height: 44px;
+    border: 1.6px solid rgba(15, 23, 42, 0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .suField input:focus {
+    border-color: #009b95;
+  }
+  
+  .suAgree {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: -2px;
+  }
+  
+  .suAgree input {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .suLink {
+    color: #0ea5a4;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  
+  .suBtn {
+    margin-top: 6px;
+    height: 46px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #009b95;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .suBtn:hover {
+    filter: brightness(0.97);
+  }
+  
+  .suBottom {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  
+  .suLinkBtn {
+    border: none;
+    background: transparent;
+    color: #0ea5a4;
+    font-weight:500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+  }
+  .suLinkBtn:focus,
+    .suLinkBtn:focus-visible {
+    outline: none;
+    box-shadow: none;
+    }
+  
+  @media (max-width: 520px) {
+    .suCard {
+      padding: 36px 22px 26px;
+    }
+    .suTitle {
+      font-size: 34px;
+    }
+  }
+  

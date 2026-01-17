@@ -1,0 +1,182 @@
+/* --- Biến màu sắc --- */
+:root {
+  --primary-teal: #00aba9;
+  --light-teal-bg: #F2FFFE; /* Màu nền nhạt cho hàng lẻ */
+  --text-dark: #333;
+  --text-gray: #666;
+  --border-color: #e0e0e0;
+  
+  --btn-add-bg: #f6c258; /* Màu vàng cam nút Add */
+  --btn-add-hover: #e0b14f;
+  
+  --badge-gray-bg: #e0e0e0;
+  --badge-gray-text: #555;
+  
+  --status-active-bg: #d0f0c0;
+  --status-active-text: #1e5631;
+  --status-inactive-bg: #fadbd8;
+  --status-inactive-text: #c0392b;
+
+  --icon-edit-color: #5e35b1; /* Màu tím xanh */
+  --icon-delete-color: #d32f2f; /* Màu đỏ */
+}
+
+/* --- Layout chung --- */
+.ap-container {
+  padding: 30px 60px;
+  background-color: #fff;
+  color: var(--text-dark);
+}
+
+/* --- Header Section --- */
+.ap-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.ap-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.ap-add-btn {
+    background-color: var(--btn-add-bg);
+    color: #1d1d1d;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ap-add-btn:hover {
+    background-color: var(--btn-add-hover);
+}
+
+/* --- Table Styling --- */
+.ap-table-container {
+    overflow-x: auto;
+}
+
+.ap-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.ap-table th,
+.ap-table td {
+    padding: 20px 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Header bảng */
+.ap-table thead th {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 15px;
+    border-bottom: 2px solid transparent;
+}
+
+/* Zebra Striping - Tô màu các hàng lẻ (1, 3, 5...) giống trong ảnh */
+.ap-table tbody tr:nth-child(odd) {
+    background-color: var(--light-teal-bg);
+}
+
+.ap-table tbody tr:hover {
+    background-color: rgba(0,0,0,0.02); /* Hiệu ứng hover nhẹ */
+}
+
+/* Utilities */
+.ap-text-center {
+    text-align: center !important;
+}
+
+/* --- Cột Products --- */
+.ap-product-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ap-product-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: #f9f9f9;
+}
+
+.ap-product-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Cột Price */
+.ap-price {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* --- Badges (Category & Status) --- */
+.ap-badge {
+    padding: 6px 18px;
+    border-radius: 20px; /* Hình viên thuốc */
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 80px;
+}
+
+/* Category Badge (Màu xám) */
+.ap-badge-category {
+    background-color: var(--badge-gray-bg);
+    color: var(--badge-gray-text);
+}
+
+/* Status Badges */
+.ap-status-active {
+    background-color: var(--status-active-bg);
+    color: var(--status-active-text);
+}
+
+.ap-status-inactive {
+    background-color: var(--status-inactive-bg);
+    color: var(--status-inactive-text);
+}
+
+/* --- Cột Update Actions --- */
+.ap-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.ap-action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    transition: transform 0.1s;
+}
+
+.ap-action-btn:hover {
+    transform: scale(1.1);
+}
+
+.edit-button {
+    color: var(--icon-edit-color);
+}
+
+.delete-btn {
+    color: var(--icon-delete-color);
+}

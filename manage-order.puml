@@ -1,0 +1,39 @@
+@startuml
+title Sequence Diagram - Manager Manage Orders
+
+actor Manager
+participant "User Interface" as UI
+participant "System" as SYS
+database "Database" as DB
+
+Manager -> UI: Access order management page
+UI --> Manager: Display order list
+
+UI -> SYS: getOrders()
+SYS -> DB: SELECT orders + orderItems
+DB --> SYS: order data
+SYS --> UI: Return order list
+UI --> Manager: Display orders
+
+Manager -> UI: Select an order
+UI -> SYS: getOrderDetail(orderId)
+SYS -> DB: SELECT order detail by id
+DB --> SYS: order detail
+SYS --> UI: Return order detail
+UI --> Manager: Display order detail
+
+Manager -> UI: Update order status
+UI -> SYS: updateOrderStatus(orderId, newStatus)
+
+SYS -> DB: UPDATE orders SET status = newStatus
+DB --> SYS: update result
+
+alt Update success
+  SYS --> UI: Return success message
+  UI --> Manager: Display updated status
+else Update failed
+  SYS --> UI: Return error message
+  UI --> Manager: Display error
+end
+
+@enduml

@@ -1,0 +1,98 @@
+.userPageContainer {
+  padding: 20px 60px;
+
+}
+.userPageContainer h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 24px;
+
+}
+.changePassContainer {
+  /* max-width: 500px; */
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.changePassContainer h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+}
+
+.changePassForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 16px;
+  color: #202020;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.formGroup input {
+  padding: 16px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #00a499;
+}
+
+.successMessage {
+  color: #27ae60;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background: #d5f4e6;
+  border-radius: 4px;
+}
+
+.errorMessage {
+  color: #e74c3c;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background: #fadbd8;
+  border-radius: 4px;
+}
+
+.saveBtn {
+  padding: 12px 44px;
+  background: #FFBD4B;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  align-self: flex-end; /* Đẩy nút sang bên phải */
+  width: fit-content;    /* Nút sẽ ngắn lại vừa với chữ bên trong */
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: #ffb300;
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

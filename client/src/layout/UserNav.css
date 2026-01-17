@@ -1,0 +1,85 @@
+.user-sidebar {
+  background: white;
+  padding: 30px 60px;
+  border-right: 1px solid #f0f0f0;
+  width: 400px;
+}
+
+.user-header {
+  margin-bottom: 20px;
+}
+
+.user-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.user-menu-item {
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.user-menu-item:hover {
+  color: #666;
+}
+
+.user-menu-item.active {
+  color: #ffc107;
+  font-weight: 600;
+}
+
+.user-logout-btn {
+  width: 100%;
+  padding: 10px 0px;
+  background: transparent;
+  border: none;
+  color: #666;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.user-logout-btn:hover {
+  color: #dc1010;
+}
+
+@media (max-width: 768px) {
+  .user-sidebar {
+    width: 100%;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}

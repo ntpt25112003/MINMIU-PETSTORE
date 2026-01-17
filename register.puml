@@ -1,0 +1,30 @@
+@startuml
+title Sequence Diagram - User Registration
+
+actor Guest
+participant "User Interface" as UI
+participant "System" as SYS
+database "Database" as DB
+
+Guest -> UI: Access register page
+UI --> Guest: Display register form
+
+Guest -> UI: Fill register information
+Guest -> UI: Submit register form
+UI -> SYS: createAccount(data)
+
+SYS -> DB: check username & phone
+DB --> SYS: validation result
+
+alt Valid data
+  SYS -> SYS: Hash password (bcrypt)
+  SYS -> DB: Save new user
+  DB --> SYS: success
+  SYS --> UI: Register success
+  UI --> Guest: Display success message
+else Invalid data
+  SYS --> UI: Register failed
+  UI --> Guest: Display error message
+end
+
+@enduml

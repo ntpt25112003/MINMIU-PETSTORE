@@ -1,0 +1,162 @@
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(80, 80, 80, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .modalCard {
+    width: min(560px, 100%);
+    background: #fff;
+    border-radius: 16px;
+    padding: 42px 48px 34px;
+    position: relative;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  }
+  
+  .modalClose {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .modalClose:focus,
+    .modalClose:focus-visible {
+    outline: none;
+    box-shadow: none;
+    }
+  
+  .modalTitle {
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  
+  .modalTitle .brand {
+    color: #009b95;
+    font-size: 40px;
+  }
+  
+  .modalSubtitle {
+    margin: 8px 0 22px;
+    text-align: center;
+    color: #475569;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .field span {
+    display: block;
+    margin-bottom: 8px;
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .field input {
+    width: 100%;
+    height: 44px;
+    border: 1.6px solid rgba(15, 23, 42, 0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .field input:focus {
+    border-color: #009b95;
+  }
+  
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: -2px;
+  }
+  
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #334155;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .remember input {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .linkBtn {
+    border: none;
+    background: transparent;
+    color: #009B95;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+  }
+  
+  .linkBtn:focus,
+    .linkBtn:focus-visible {
+    outline: none;
+    box-shadow: none;
+    }
+  
+  .primaryBtn {
+    margin-top: 6px;
+    height: 46px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #009b95;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .primaryBtn:hover {
+    filter: brightness(0.97);
+  }
+  
+  .bottomRow {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  
+  @media (max-width: 520px) {
+    .modalCard {
+      padding: 36px 22px 26px;
+    }
+    .modalTitle {
+      font-size: 34px;
+    }
+  }
+  

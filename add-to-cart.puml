@@ -1,0 +1,43 @@
+@startuml
+title Sequence Diagram - Browse Products & Add to Cart
+
+actor USER
+participant "User Interface" as UI
+participant "System" as SYS
+database "Database" as DB
+
+== Browse Products ==
+USER -> UI: View product list / categories
+UI -> SYS: getProducts(categoryId, keyword)
+SYS -> DB: SELECT products + category
+DB --> SYS: product list
+SYS --> UI: Return products
+UI --> USER: Display product list
+
+USER -> UI: Select a product
+UI -> SYS: getProductDetail(productId)
+SYS -> DB: SELECT product detail
+DB --> SYS: product detail
+SYS --> UI: Return product detail
+UI --> USER: Display product detail
+
+== Add to Cart ==
+USER -> UI: Add to cart(productId, qty)
+UI -> SYS: addToCart(userId, productId, qty)
+SYS -> DB: findOrCreateCart(userId)
+DB --> SYS: cart
+
+SYS -> DB: checkProductStock(productId)
+DB --> SYS: stockQuantity
+
+alt Stock available
+  SYS -> DB: upsertCartItem(cartId, productId, qty)
+  DB --> SYS: updated cart item
+  SYS --> UI: Return success + cart summary
+  UI --> USER: Display "Added to cart"
+else Out of stock
+  SYS --> UI: Return out-of-stock message
+  UI --> USER: Display error message
+end
+
+@enduml

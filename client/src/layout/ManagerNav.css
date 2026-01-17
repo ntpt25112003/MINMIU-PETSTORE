@@ -1,0 +1,63 @@
+.mn-sidebar {
+  background: white;
+  padding: 30px 60px;
+  border-right: 1px solid #f0f0f0;
+  width: 400px;
+}
+
+.mn-header {
+  margin-bottom: 20px;
+}
+
+.mn-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.mn-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 30px;
+}
+
+.mn-menu-item {
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.mn-menu-item:hover {
+  color: #666;
+}
+
+.mn-menu-item.active {
+  color: #ffc107;
+  font-weight: 600;
+}
+
+.mn-logout-btn {
+  width: 100%;
+  padding: 10px 0px;
+  background: transparent;
+  border: none;
+  color: #666;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.mn-logout-btn:hover {
+  color: #dc1010;
+}

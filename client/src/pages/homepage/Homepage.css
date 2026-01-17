@@ -1,0 +1,366 @@
+.home {
+    /* background: #fff; */
+    color: #0f172a;
+    padding-top: 70px;
+  }
+  
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+
+    height: 420px;
+    background: url("../../images/home.png") center/cover no-repeat;
+    /* nếu chưa có hero.jpg thì vẫn ok, sẽ ra nền tối */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+  }
+  
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 16px;
+    max-width: 900px;
+  }
+  
+  .hero-title {
+    color: #fff;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 0 0 18px;
+    text-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  }
+  
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+  }
+  
+  /* button styles dùng riêng cho homepage (không đụng Button component của bạn) */
+  .btnPrimary {
+    background: #009B95;
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(14, 165, 164, 0.25);
+  }
+  .btnPrimary:hover {
+    filter: brightness(0.97);
+  }
+  
+  /* ===== STATS STRIP ===== */
+  .statsWrap {
+    display: flex;
+    justify-content: center;
+    padding: 36px 60px 0;
+  }
+  
+  .stats {
+    width: 100%;
+    background: #e6fffd;
+    border-radius: 18px;
+    padding: 16px 68px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  
+  .statItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .statIcon {
+    width: 26px;
+    height: 26px;
+    padding: 9px;
+    color: #009B95;
+    flex: 0 0 auto;
+  }
+  
+  .statTitle {
+    font-weight: 500;
+    font-size: 14px;
+    color: #009B95;
+  }
+  
+  .statSub {
+    font-size: 13px;
+    color: #009B95;
+  }
+  
+  /* ===== QUALITY SECTION ===== */
+  .quality {
+    width: min(1000px, 100%);
+    margin: 28px auto 0;
+    padding: 0 16px;
+    text-align: center;
+  }
+  
+  .quality h2,
+  .qualityTitle {
+    font-size: 34px;
+    font-weight: 600;
+    margin: 18px 0 10px;
+  }
+  
+  .quality p,
+  .qualityDesc {
+    max-width: 840px;
+    margin: 0 auto;
+    color: #334155;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  
+  /* ===== SHOP BANNER ===== */
+  .shopBannerWrap {
+    width: min(1410px, 100%);
+    margin: 56px auto 0;
+    padding: 0 16px;
+  }
+  
+  .shopBanner {
+    position: relative;
+    height: 80px;             
+    background: #e9f2ff;
+    border-radius: 12px;
+    padding: 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;          
+  }
+  
+  .shopLeft {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+  }
+  
+  .shopLabel {
+    font-weight: 900;
+    color: #0f172a;
+    white-space: nowrap;
+  }
+  
+  .shopCat {
+    position: absolute;
+    left: 220px;        
+    bottom: -24px;      
+    height: 150px;     
+    width: auto;
+    pointer-events: none;
+  }
+  
+  .shopMid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .shopTitle {
+    font-weight: 900;
+    color: #0f172a;
+  }
+  
+  .shopSub {
+    font-size: 14px;
+    color: #334155;
+  }
+  
+  .shopRight {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btnDark {
+    background: #0b2545;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .btnDark:hover {
+    filter: brightness(0.97);
+  }
+  
+  /* ===== SERVICES GRID ===== */
+  .services {
+    width: min(900px, 100%);
+    margin: 22px auto 0;
+    padding: 20px 16px;
+  }
+  
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+  }
+  
+  .serviceCard {
+    border-radius: 16px;
+    padding: 14px 16px 16px;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    column-gap: 16px;
+    align-items: start;
+  }
+  
+  .serviceIcon {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+    border-radius: 12px;
+    background: #F6F6F6;
+    color: #009B95;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .serviceCard h4 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    color: #0f172a;
+  }
+  
+  .serviceCard p {
+    grid-column: 2 / 3;
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.55;
+  }
+  
+  /* ===== CTA BAR ===== */
+  .ctaBar {
+    margin-top: 52px;
+    padding: 0 16px 24px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .ctaInner {
+    max-width: 1250px;   /* 👈 giới hạn chiều dài thanh */
+    width: 100%;
+    margin: 0 auto; 
+    background: #0b2545;
+    color: #fff;
+    border-radius: 12px;
+  
+    height: 78px;             
+    padding: 0 22px 0 150px;   
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  
+    position: relative;       
+    overflow: visible;        
+  }
+  
+  .ctaCat {
+    position: absolute;
+    left: 24px;
+    bottom: -18px;            
+    height: 200px;            
+    object-fit: contain;
+    pointer-events: none;
+  }
+  
+  .ctaText {
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    flex: 1;                   
+  }
+  
+  .ctaPhone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0.95;
+  }
+  
+  .ctaNum {
+    font-weight: 600;
+  }
+  
+  
+  /* ===== FOOTER ===== */
+  .footer {
+    width: 100%;
+    /* margin-top: 24px; */
+  }
+
+  .footerTop {
+    background: #ffffff;
+    text-align: center;
+    padding: 34px 16px 26px;
+  }
+  
+  .footerTitle {
+    margin: 0;
+    color: #009b95;
+    font-size: 36px;
+    font-weight: 600;
+  }
+  
+  .footerSub {
+    margin: 20px 0;
+    color: #111827;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px) {
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .shopBanner {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .shopRight {
+      justify-content: flex-start;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    .hero {
+      height: 320px;
+    }
+    .hero-title {
+      font-size: 34px;
+    }
+    .servicesGrid {
+      grid-template-columns: 1fr;
+    }
+    .ctaInner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  

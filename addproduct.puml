@@ -1,0 +1,53 @@
+@startuml
+title Sequence Diagram - Manager Add Category & Add Product
+
+actor Manager
+participant "User Interface" as UI
+participant "System" as SYS
+database "Database" as DB
+
+Manager -> UI: Access management page
+UI --> Manager: Display management options
+
+alt Add Category
+  Manager -> UI: Open add category form
+  UI --> Manager: Display category form
+  Manager -> UI: Enter category information
+  Manager -> UI: Submit category form
+  UI -> SYS: createCategory(data)
+
+  SYS -> SYS: Validate category name
+  SYS -> DB: INSERT category
+  DB --> SYS: insert result
+
+  alt Create success
+    SYS --> UI: Return success message
+    UI --> Manager: Display success message
+  else Create failed (duplicate/invalid)
+    SYS --> UI: Return error message
+    UI --> Manager: Display error
+  end
+
+else Add Product
+  Manager -> UI: Open add product form
+  UI --> Manager: Display product form
+  Manager -> UI: Fill product information
+  Manager -> UI: Upload product image
+  Manager -> UI: Submit product form
+  UI -> SYS: createProduct(data + imageFile)
+
+  SYS -> SYS: Validate input fields
+  SYS -> SYS: Save image (Multer -> /public/images)
+  SYS -> DB: INSERT product
+  DB --> SYS: insert result
+
+  alt Create success
+    SYS --> UI: Return success + product info
+    UI --> Manager: Display success message
+  else Create failed
+    SYS --> UI: Return error message
+    UI --> Manager: Display error
+  end
+end
+
+@enduml
