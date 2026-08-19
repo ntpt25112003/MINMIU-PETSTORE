@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import "./CategoryDetail.css";
 import product from "../../images/product.png";
+import { getImageSrc } from "../../utils/imageUrl";
 
 export default function CategoryDetail() {
   const { categoryId } = useParams();
@@ -150,7 +151,7 @@ export default function CategoryDetail() {
               >
                 <div className="products-image">
                   <img 
-                    src={item.image ? `http://localhost:8081/images/${item.image}` : product} 
+                    src={item.image ? getImageSrc(item.image) : product} 
                     alt={item.name}
                     onError={(e) => {e.target.onerror = null; e.target.src = product}}
                   />

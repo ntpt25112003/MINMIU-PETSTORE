@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProcessOrder.css";
+import { getImageSrc } from "../../../utils/imageUrl";
 
 export default function ProcessOrder() {
   const [orders, setOrders] = useState([]);
@@ -91,7 +92,7 @@ export default function ProcessOrder() {
                   <div key={idx} className="po-item">
                     {item.image && (
                       <img
-                        src={`http://localhost:8081/images/${item.image}`}
+                        src={getImageSrc(item.image)}
                         alt={item.productName}
                         className="po-item-image"
                       />

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./ShoppingCart.css";
 import productPlaceholder from "../../images/product.png";
+import { getImageSrc } from "../../utils/imageUrl";
 
 const getUserIdFromToken = () => {
   const token = localStorage.getItem("token");
@@ -118,7 +119,7 @@ const ShoppingCart = () => {
   };
 
   const getImageUrl = (imageName) =>
-    imageName ? `http://localhost:8081/images/${imageName}` : productPlaceholder;
+    imageName ? getImageSrc(imageName) : productPlaceholder;
 
   return (
     <div>

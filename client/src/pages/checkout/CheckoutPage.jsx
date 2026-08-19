@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import "./CheckoutPage.css";
 // import Heading from "../../components/header/Heading";
+import { getImageSrc } from "../../utils/imageUrl";
 
 const getUserIdFromToken = () => {
   const token = localStorage.getItem("token");
@@ -185,7 +186,7 @@ const CheckoutPage = () => {
                       <div className="prod-info">
                         {item.image && (
                           <img 
-                            src={`http://localhost:8081/images/${item.image}`} 
+                            src={getImageSrc(item.image)} 
                             alt={item.name}
                             onError={(e) => e.target.src = "https://via.placeholder.com/50"}
                           />

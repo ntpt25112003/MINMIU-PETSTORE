@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./ReviewModal.css";
+import { getImageSrc } from "../../utils/imageUrl";
 
 const ReviewModal = ({ open, onClose, product, orderId, onSubmitSuccess }) => {
   const [rating, setRating] = useState(5);
@@ -68,7 +69,7 @@ const ReviewModal = ({ open, onClose, product, orderId, onSubmitSuccess }) => {
           <div className="review-product-info">
             {product.image && (
               <img
-                src={`http://localhost:8081/images/${product.image}`}
+                src={getImageSrc(product.image)}
                 alt={product.productName}
                 className="review-product-image"
               />

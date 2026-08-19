@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReviewModal from "../../../components/review/ReviewModal";
 import "./CompletedOrder.css";
+import { getImageSrc } from "../../../utils/imageUrl";
 
 export default function CompletedOrder() {
   const [orders, setOrders] = useState([]);
@@ -144,7 +145,7 @@ export default function CompletedOrder() {
                   return (
                     <div key={idx} className="co-item">
                       <img
-                        src={`http://localhost:8081/images/${item.image}`}
+                        src={getImageSrc(item.image)}
                         alt={item.productName}
                         className="co-item-image"
                       />

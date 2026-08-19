@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import AddProductModal from "./modal/AddProductModal";
 import "./AllProduct.css";
+import { getImageSrc } from "../../utils/imageUrl";
 
 export default function AllProduct() {
   const [products, setProducts] = useState([]);
@@ -149,7 +150,7 @@ export default function AllProduct() {
                 <td>
                   <div className="ap-product-info">
                     <img 
-                      src={`http://localhost:8081/images/${product.image}`}
+                      src={getImageSrc(product.image)}
                       alt={product.name}
                       className="ap-product-img"
                     />

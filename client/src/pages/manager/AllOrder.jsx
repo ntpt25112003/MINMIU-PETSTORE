@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import "./AllOrder.css";
+import { getImageSrc } from "../../utils/imageUrl";
 
 export default function AllOrder() {
   const [orders, setOrders] = useState([]);
@@ -149,7 +150,7 @@ export default function AllOrder() {
     if (!img) return "https://via.placeholder.com/50?text=No+Image";
     if (img.startsWith("http")) return img;
     // nếu backend serve static: /public/images => /images
-    return `http://localhost:8081/images/${img}`;
+    return getImageSrc(img);
   };
 
   const filteredOrders = getFilteredOrders();

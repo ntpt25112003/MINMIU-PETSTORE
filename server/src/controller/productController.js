@@ -2,11 +2,49 @@ import db from '../models/index.js';
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { Readable } from "stream";
+import cloudinary from "../config/cloudinary.js";
 
 // để xoá ảnh cũ nếu có update ảnh mới
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const uploadDir = path.join(__dirname, "../../public/images");
+
+const uploadToCloudinary = (fileBuffer, folder = "MINMIU-PETSTORE/products") => {
+    return new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+            {
+                folder,
+                resource_type: "image",
+            },
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+            }
+        );
+
+        Readable.from(fileBuffer).pipe(uploadStream);
+    });
+};
+
+const getPublicIdFromCloudinaryUrl = (url) => {
+    if (!url || typeof url !== "string" || !url.includes("res.cloudinary.com")) {
+        return null;
+    }
+
+    try {
+        const parsed = new URL(url);
+        const parts = parsed.pathname.split("/");
+        const uploadIndex = parts.indexOf("upload");
+        if (uploadIndex === -1) return null;
+
+        const publicPath = parts.slice(uploadIndex + 1).join("/");
+        const withoutVersion = publicPath.replace(/^v\d+\//, "");
+        return withoutVersion.replace(/\.[^.]+$/, "");
+    } catch (error) {
+        return null;
+    }
+};
 
 const createProductController = async (req, res) => {
     try {
@@ -23,7 +61,11 @@ const createProductController = async (req, res) => {
             });
         }
 
-        const image = req.file ? req.file.filename : null;
+        let image = null;
+        if (req.file) {
+            const result = await uploadToCloudinary(req.file.buffer);
+            image = result.secure_url;
+        }
 
         const newProduct = await db.Product.create({
             name,
@@ -166,17 +208,17 @@ const updateProductController = async (req, res) => {
       return res.status(404).json({ EC: -1, EM: "Product not found", DT: "" });
     }
 
-    // nếu có upload ảnh mới -> dùng ảnh mới, và xoá ảnh cũ (nếu có)
-    let newImage = product.image;
-    if (req.file?.filename) {
-      newImage = req.file.filename;
+        // nếu có upload ảnh mới -> upload Cloudinary và xoá ảnh cũ trên Cloudinary
+        let newImage = product.image;
+        if (req.file) {
+            const result = await uploadToCloudinary(req.file.buffer);
+            newImage = result.secure_url;
 
-      // xoá ảnh cũ
-      if (product.image) {
-        const oldPath = path.join(uploadDir, product.image);
-        fs.unlink(oldPath, () => {}); // fail cũng bỏ qua cho khỏi crash
-      }
-    }
+            const oldPublicId = getPublicIdFromCloudinaryUrl(product.image);
+            if (oldPublicId) {
+                await cloudinary.uploader.destroy(oldPublicId, { resource_type: "image" }).catch(() => {});
+            }
+        }
 
     await product.update({
       name: name ?? product.name,
@@ -212,11 +254,11 @@ const deleteProductController = async (req, res) => {
       return res.status(404).json({ EC: -1, EM: "Product not found", DT: "" });
     }
 
-    // xoá ảnh nếu có
-    if (product.image) {
-      const imgPath = path.join(uploadDir, product.image);
-      fs.unlink(imgPath, () => {});
-    }
+        // xoá ảnh Cloudinary nếu có
+        const publicId = getPublicIdFromCloudinaryUrl(product.image);
+        if (publicId) {
+            await cloudinary.uploader.destroy(publicId, { resource_type: "image" }).catch(() => {});
+        }
 
     await product.destroy();
 

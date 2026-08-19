@@ -10,6 +10,7 @@ import banner1 from "../../images/banner1.png";
 import banner2 from "../../images/banner2.png";
 import banner3 from "../../images/banner3.png";
 import product from "../../images/product.png";
+import { getImageSrc } from "../../utils/imageUrl";
 
 export default function StorePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -155,7 +156,7 @@ export default function StorePage() {
                 >
                   <div className="product-image">
                     <img 
-                      src={item.image ? `http://localhost:8081/images/${item.image}` : product} 
+                      src={item.image ? getImageSrc(item.image) : product} 
                       alt={item.name} 
                       onError={(e) => {e.target.onerror = null; e.target.src = product}}
                     />

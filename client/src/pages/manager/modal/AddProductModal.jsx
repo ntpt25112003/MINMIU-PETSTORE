@@ -3,6 +3,7 @@ import "./AddProductModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { getImageSrc } from "../../../utils/imageUrl";
 
 const API_URL = "http://localhost:8081/api";
 
@@ -37,7 +38,7 @@ export default function AddProductModal({ open, onClose, onSave, mode = "add", p
 
       // preview ảnh cũ
       if (product.image) {
-        setPreview(`http://localhost:8081/images/${product.image}`);
+        setPreview(getImageSrc(product.image));
       } else {
         setPreview(null);
       }

@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./ProductDetail.css";
 import shopCat from "../../images/product.png";
+import { getImageSrc } from "../../utils/imageUrl";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -152,7 +153,7 @@ const ProductDetail = () => {
   };
 
   const imageUrl = productData.image
-    ? `http://localhost:8081/images/${productData.image}`
+    ? getImageSrc(productData.image)
     : shopCat;
 
   const handleRatingFilter = (rating) => {
@@ -346,7 +347,7 @@ const ProductDetail = () => {
                     <img
                       src={
                         item.image
-                          ? `http://localhost:8081/images/${item.image}`
+                          ? getImageSrc(item.image)
                           : shopCat
                       }
                       alt={item.name}
