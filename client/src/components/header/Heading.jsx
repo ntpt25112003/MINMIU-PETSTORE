@@ -42,6 +42,10 @@ export default function Heading({ onOpenLogin, onOpenSignup,  }) {
       .toUpperCase();
   };
 
+  const handleBookClick = () => {
+    window.dispatchEvent(new CustomEvent("open-booking-chat"));
+  };
+
   return (
     <header className="header">
       <div className="header-left">
@@ -59,7 +63,7 @@ export default function Heading({ onOpenLogin, onOpenSignup,  }) {
           </nav>
 
           <div className="header-right">
-            <Button variant="primary">+ Book Appointment</Button>
+            <Button variant="primary" onClick={handleBookClick}>+ Book Appointment</Button>
 
             {user ? (
               <div className="user-dropdown">

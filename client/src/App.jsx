@@ -12,11 +12,13 @@ import UserLayout from "./layout/UserLayout";
 import AllOrder from "./pages/manager/AllOrder";
 import AllProduct from "./pages/manager/AllProduct";
 import AddCategory from "./pages/manager/AddCategory";
+import ManagerAppointments from "./pages/manager/ManagerAppointments";
 import ShippingAddress from "./pages/user/account/ShippingAddress";
 import ChangePass from "./pages/user/account/ChangePass";
 import Profile from "./pages/user/account/Profile";
 import ProcessOrder from "./pages/user/order-manager/ProcessOder";
 import CompletedOrder from "./pages/user/order-manager/CompletedOrder";
+import UserAppointments from "./pages/user/appointments/UserAppointments";
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
 
         {/* Manager Routes with ProtectedManagerLayout */}
         <Route path="manager" element={<ManagerLayout />}>
+          <Route path="appointments" element={<ManagerAppointments />} />
           <Route path="allorder" element={<AllOrder />} />
           <Route path="allproduct" element={<AllProduct />} />
           <Route path="addcategory" element={<AddCategory />} />
@@ -42,9 +45,10 @@ function App() {
 
         {/* User Routes with UserLayout */}
         <Route path="user" element={<UserLayout />}>
+          <Route path="profile" element={<Profile />} />
+          <Route path="appointments" element={<UserAppointments />} />
           <Route path="shipping-address" element={<ShippingAddress />} />
           <Route path="change-password" element={<ChangePass />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="processing-orders" element={<ProcessOrder />} />
           <Route path="completed-orders" element={<CompletedOrder />} />
         </Route>

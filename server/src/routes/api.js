@@ -34,8 +34,20 @@ import {
   getProductReviewsController,
   checkReviewedController,
 } from "../controller/reviewController.js";
+import {
+  consultServiceController,
+  analyzePetImageController,
+  calculatePriceController,
+  getAvailableSlotsController,
+  createAppointmentController,
+  getUserAppointmentsController,
+  getManagerScheduleController,
+  getAllAppointmentsManagerController,
+  updateAppointmentStatusController,
+  cancelAppointmentController,
+} from "../controller/appointmentController.js";
 import upload from "../config/multer.js";
-import { verifyToken } from "../middleware/auth.js";
+import { verifyToken, optionalAuth } from "../middleware/auth.js";
 import requireManager from "../middleware/requireManager.js";
 
 const router = express.Router();
@@ -86,6 +98,20 @@ const initApiRoutes = (app) => {
    router.get("/product/:productId/reviews", getProductReviewsController);
    router.get("/review/check", verifyToken, checkReviewedController);
    
+    // AI Chat & Appointment routes
+    router.post("/chat/consult", consultServiceController);
+    router.post("/chat/analyze-pet", upload.single("image"), analyzePetImageController);
+    router.post("/chat/calculate-price", calculatePriceController);
+    router.get("/appointment/slots", getAvailableSlotsController);
+    router.post("/appointment", optionalAuth, createAppointmentController);
+    router.get("/user/appointments", optionalAuth, getUserAppointmentsController);
+    router.put("/user/appointment/:id/cancel", optionalAuth, cancelAppointmentController);
+
+    // Manager Appointment routes
+    router.get("/manager/appointments/schedule", verifyToken, requireManager, getManagerScheduleController);
+    router.get("/manager/appointments", verifyToken, requireManager, getAllAppointmentsManagerController);
+    router.put("/manager/appointment/:id/status", verifyToken, requireManager, updateAppointmentStatusController);
+
     return app.use("/api", router)
 }
 

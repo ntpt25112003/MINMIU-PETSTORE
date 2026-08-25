@@ -12,6 +12,10 @@ export default function UserNav() {
       path: "/user/profile",
     },
     {
+      label: "My Appointments",
+      path: "/user/appointments",
+    },
+    {
       label: "Change password",
       path: "/user/change-password",
     },

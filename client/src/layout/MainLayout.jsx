@@ -4,6 +4,7 @@ import Heading from "../components/header/Heading";
 import Footer from "../components/footer/Footer";
 import LoginModal from "../components/homeSign/LoginModal";
 import SignupModal from "../components/homeSign/SignupModal";
+import AIChatbox from "../components/chat/AIChatbox";
 
 export default function MainLayout() {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -43,6 +44,7 @@ export default function MainLayout() {
 
       <Outlet />
       <Footer />
+      <AIChatbox />
     </>
   );
 }

@@ -1,0 +1,145 @@
+/* UserAppointments.css */
+.user-appt-container {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  font-family: 'Fredoka', sans-serif;
+}
+
+.user-appt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 2px dashed #ffe6e0;
+  padding-bottom: 16px;
+}
+
+.user-appt-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-new-appt {
+  background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 126, 95, 0.3);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-new-appt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 126, 95, 0.4);
+}
+
+.user-appt-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.user-appt-card {
+  background: #fff8f6;
+  border: 1.5px solid #ffd8ce;
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s;
+}
+
+.user-appt-card:hover {
+  border-color: #ff7e5f;
+  box-shadow: 0 6px 20px rgba(255, 126, 95, 0.12);
+  transform: translateY(-2px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-code {
+  font-weight: 700;
+  color: #e65100;
+  font-size: 14px;
+}
+
+.card-body-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+  color: #334155;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-row .label {
+  color: #64748b;
+  min-width: 80px;
+}
+
+.info-row .val {
+  font-weight: 600;
+}
+
+.card-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed #ffd8ce;
+}
+
+.btn-cancel-appt {
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel-appt:hover {
+  background: #fecaca;
+}
+
+.empty-appts-box {
+  text-align: center;
+  padding: 50px 20px;
+  color: #94a3b8;
+}
+
+.empty-icon-lg {
+  font-size: 48px;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+}

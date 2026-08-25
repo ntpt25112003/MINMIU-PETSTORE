@@ -25,5 +25,20 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-export { verifyToken };
+const optionalAuth = (req, res, next) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (!token) {
+    return next();
+  }
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "your-secret-key");
+    req.user = decoded;
+  } catch (error) {
+    // Ignore invalid token for optional auth
+  }
+  next();
+};
+
+export { verifyToken, optionalAuth };
 export default verifyToken;
+

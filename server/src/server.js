@@ -11,9 +11,16 @@ import initApiRoutes from "./routes/api.js";
 import configCors from "./config/cors.js";
 import connectToDataBase from "./config/connectDb.js";
 
+import http from "http";
+import { initSocket } from "./config/socket.js";
+
 dotenv.config();
 
 const app = express();
+const httpServer = http.createServer(app);
+
+// Initialize Real-time Socket.IO Communication
+initSocket(httpServer);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,6 +40,6 @@ initWebRoutes(app);
 connectToDataBase();
 
 const PORT = process.env.PORT || 8081;
-app.listen(PORT, () => {
-  console.log(">>> Backend is running on port =", PORT);
+httpServer.listen(PORT, () => {
+  console.log(">>> Backend & Socket.IO running on port =", PORT);
 });

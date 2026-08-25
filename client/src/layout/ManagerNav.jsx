@@ -8,6 +8,10 @@ export default function ManagerNav() {
 
   const menuItems = [
     {
+      label: "Appointments",
+      path: "/manager/appointments",
+    },
+    {
       label: "All Order",
       path: "/manager/allorder",
     },
